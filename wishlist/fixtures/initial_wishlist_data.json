@@ -1,0 +1,29 @@
+[
+    {
+        "model":"wishlist.barangwishlist",
+        "pk":1,
+        "fields":{
+            "nama_barang":"iPhone 14 Pro Maag",
+            "harga_barang":"14000000",
+            "deskripsi": "Bikin sakit Maag karena harganya mahal."
+        }
+},
+{
+        "model":"wishlist.barangwishlist",
+        "pk":2,
+        "fields":{
+            "nama_barang":"Topi Bundar",
+            "harga_barang":"99000",
+            "deskripsi": "Bundar topi saya, kalau tidak bundar bukan topi saya."
+        }
+    },
+    {
+        "model":"wishlist.barangwishlist",
+        "pk":3,
+        "fields":{
+            "nama_barang":"Kasur Lipat",
+            "harga_barang":"500000",
+            "deskripsi": "Berapa lapis? Ratusan!"
+        }
+    }
+]
