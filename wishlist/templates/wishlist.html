@@ -2,18 +2,24 @@
 
 {% block content %}
 <style>
+    body {
+        background-color:#45c1d2
+    }
     table, th, td {
-      border: 1px solid black;
+      border: 1px solid white;
       border-collapse: collapse;
       font-size:15px;
-      color:black;
+      color: white;
       border-radius: 10px;
       font-weight: 300;
     }
+    h5 {
+        color: white;
+    }
 </style>
-<nav class="navbar bg-light">
+<nav class="navbar" style="background-color: #4babb8">
     <div class="container-fluid">
-      <a class="navbar-brand">Navigate</a>
+      <a class="navbar-brand" style="color:white">Navigate</a>
       <button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
     </div>
   </nav>
