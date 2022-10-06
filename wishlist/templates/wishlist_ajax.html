@@ -29,7 +29,13 @@
         $.getJSON("/wishlist/json/", function(data){
             var result = "";
             result += "<tr>";
-            for 
+            for (var i = 0; i < data.length; i++) {
+                result += "<td>" + data[i].fields.nama_barang + "</td>"
+                result += "<td>" + data[i].fields.harga_barang + "</td>"
+                result += "<td>" + data[i].fields.deskripsi + "</td>"
+            }
+            result += "</tr>"
+            $("#json").append(result);
         })
     })
 </script>
@@ -61,7 +67,7 @@
     <div class="container" id="form">
         <form method="POST" action="">
             {% csrf_token %}
-            <table>
+            <table id="json">
               <tr>
                 <td>Nama barang: </td>
                 <td>
