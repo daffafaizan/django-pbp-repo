@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-color:gray;
+    }
+    table, th, td {
+      border: 1px solid white;
+      border-collapse: collapse;
+      font-size:15px;
+      color: white;
+      border-radius: 10px;
+      font-weight: 300;
+    }
+    h5 {
+        color: white;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+    }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.getJSON("/wishlist/json/", function(data){
+            var result = "";
+            result += "<tr>";
+            for 
+        })
+    })
+</script>
+
+<nav class="navbar" style="background-color: black">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="color:white">Navigate</a>
+      <button class="btn btn-light"><a href="{% url 'wishlist:logout' %}">Logout</a></button>
+    </div>
+  </nav>
+<br>
+<div class="container">
+    <div class="container" id="title">
+        <head>
+            <h5>Nama: {{user}}</h5>
+        </head>
+    </div>
+    <div class="container" id="table">
+        <body>
+            <table>
+                <tr>
+                <th>Nama Barang</th>
+                <th>Harga Barang</th>
+                <th>Deskripsi</th>
+                </tr>
+            </table>           
+        </body>
+    </div>
+    <div class="container" id="form">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <table>
+              <tr>
+                <td>Nama barang: </td>
+                <td>
+                  <input 
+                  type="text" 
+                  name="nama_barang" 
+                  placeholder="Nama barang" 
+                  class="form-control"
+                  />
+                </td>
+              </tr>
+          
+              <tr>
+                <td>Harga barang:</td>
+                <td>
+                  <input
+                    type="text"
+                    name="harga_barang"
+                    placeholder="Harga barang"
+                    class="form-control"
+                  />
+                </td>
+              </tr>
+
+              <tr>
+                <td>Deskirpsi:</td>
+                <td>
+                  <input
+                    type="text"
+                    name="Deskirpsi"
+                    placeholder="Deskripsi"
+                    class="form-control"
+                  />
+                </td>
+              </tr>
+          
+              <tr>
+                <td></td>
+                <td><input class="btn submit_btn" type="submit" value="Submit" /></td>
+              </tr>
+            </table>
+          </form>
+          <h5>Sesi terakhir login: {{ last_login }}</h5>
+    </div>
+  </div>
+
+{% endblock content %}

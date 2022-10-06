@@ -4,13 +4,6 @@
 <style>
     body {
         background-color:#45c1d2
-        
-    }
-    div {
-        padding-top: 0px;
-        padding-right: 30px;
-        padding-bottom: 0px;
-        padding-left: 80px;
     }
     table, th, td {
       border: 1px solid white;
@@ -23,6 +16,11 @@
     h5 {
         color: white;
     }
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
 </style>
 <nav class="navbar" style="background-color: #4babb8">
     <div class="container-fluid">
@@ -32,29 +30,32 @@
   </nav>
 <br>
 <div class="container">
-    <head>
-        <h5>Nama: {{user}}</h5>
-    </head>
-    <br>
-    <body>
-        <table>
-            <tr>
-            <th>Nama Barang</th>
-            <th>Harga Barang</th>
-            <th>Deskripsi</th>
-            </tr>
-            {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
-            {% for barang in list_barang %}
+    <div class="container" id="title">
+        <head>
+            <h5>Nama: {{user}}</h5>
+        </head>
+    </div>
+    <div class="container" id="table">
+        <body>
+            <table>
                 <tr>
-                    <th>{{barang.nama_barang}}</th>
-                    <th>{{barang.harga_barang}}</th>
-                    <th>{{barang.deskripsi}}</th>
+                <th>Nama Barang</th>
+                <th>Harga Barang</th>
+                <th>Deskripsi</th>
                 </tr>
-            {% endfor %}
-        </table>
-        <br>
-        <h5>Sesi terakhir login: {{ last_login }}</h5>
-    </body>
+                {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+                {% for barang in list_barang %}
+                    <tr>
+                        <th>{{barang.nama_barang}}</th>
+                        <th>{{barang.harga_barang}}</th>
+                        <th>{{barang.deskripsi}}</th>
+                    </tr>
+                {% endfor %}
+            </table>
+            <br>
+            <h5>Sesi terakhir login: {{ last_login }}</h5>
+        </body>
+    </div>
   </div>
 
 {% endblock content %}
