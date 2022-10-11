@@ -31,6 +31,21 @@ def show_wishlist_ajax(request):
     }
     return render(request, "wishlist_ajax.html", context)
 
+@login_required(login_url='/wishlist_ajax/login/')
+def add_data_ajax(request):
+    if request.method == 'POST':
+        nama_barang = request.POST.get('nama_barang')
+        harga_barang = request.POST.get('harga_barang')
+        deskripsi = request.POST.get('deskripsi')
+
+        BarangWishlist.objects.create(
+            nama_barang = nama_barang,
+            harga_barang = harga_barang,
+            deskripsi = deskripsi,
+        )
+
+        return HttpResponseRedirect(reverse("wishlist:show_wishlist_ajax"))
+
 def show_xml(request):
     data = BarangWishlist.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
@@ -80,3 +95,7 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('wishlist:login'))
     response.delete_cookie('last_login')
     return response
+
+def delete_task(request, pk):
+    BarangWishlist.objects.get(user=request.user,pk=pk).delete()
+    return HttpResponseRedirect(reverse('wishlist:show_wishlist_ajax'))
